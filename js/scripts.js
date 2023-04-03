@@ -64,8 +64,12 @@ function handleFormSubmission(event) {
   const inputtedPhoneNumber = document.querySelector("input#new-phone-number").value;
   let newContact = new Contact(inputtedFirstName, inputtedLastName, inputtedPhoneNumber);
   addressBook.addContact(newContact);
-  console.log(addressBook.contacts);
+  listContacts(addressBook);  // <--- This is the new line!
 }
+
+window.addEventListener("load", function (){
+  document.querySelector("form#new-contact").addEventListener("submit", handleFormSubmission);
+});
 
 window.addEventListener("load", function (){
   document.querySelector("form#new-contact").addEventListener("submit", handleFormSubmission);
